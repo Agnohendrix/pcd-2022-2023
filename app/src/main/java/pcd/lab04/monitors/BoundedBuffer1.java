@@ -33,7 +33,7 @@ public class BoundedBuffer1<Item> implements IBoundedBuffer<Item> {
 		return buffer.size() == maxSize;
 	}
 
-	private boolean isEmpty() {
+	public boolean isEmpty() {
 		return buffer.size() == 0;
 	}
 }

@@ -13,15 +13,19 @@ class Producer extends Thread {
 	}
 
 	public void run(){
-		while (true){
+		int i = 100;
+		while ( i > 0){
 			Integer item = produce();
 			try {
 				buffer.put(item);
 				log("produced "+item);
+				i--;
+				System.out.println("i " + i);
 			} catch(InterruptedException ex){
 				ex.printStackTrace();
 			}
 		}
+		System.out.println("Ended generating");
 	}
 	
 	private Integer produce(){

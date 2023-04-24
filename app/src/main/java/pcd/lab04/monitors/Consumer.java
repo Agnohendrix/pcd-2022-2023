@@ -10,7 +10,7 @@ class Consumer extends Thread {
 	}
 
 	public void run(){
-		while (true){
+		while (!buffer.isEmpty()){
 			try {
 				Integer item = buffer.get();
 				consume(item);
@@ -18,6 +18,7 @@ class Consumer extends Thread {
 				ex.printStackTrace();
 			}
 		}
+		System.out.println(this.getName() + "Ended buffer");
 	}
 	
 	private void consume(Integer item){
